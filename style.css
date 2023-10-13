@@ -19,6 +19,18 @@ header h1 {
 main {
     max-width: 960px;
     margin: 20px auto;
+    label {
+        display: block;
+        font:
+          1rem 'Fira Sans',
+          sans-serif;
+      }
+      
+      input,
+      label {
+        margin: 0.4rem 0;
+      }
+      
 }
 
 #container {
