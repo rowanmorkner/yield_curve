@@ -1,64 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize variables
-    let allData = [];
+    const data = [5.56, 5.60, 5.62, 5.62, 5.58, 5.49, 5.12, 4.88, 4.72, 4.73, 4.69, 5.00, 4.81];
+    const minValue = Math.min(...data); // Calculate the minimum value
 
-    // Fetch and parse CSV data
-    fetch('daily-treasury-rates.csv')
-        .then(response => response.text())
-        .then(csv => {
-            allData = Papa.parse(csv, {
-                header: true,
-                dynamicTyping: true
-            }).data;
-
-            // Populate the date selector
-            populateDateSelector(allData);
-
-            // Initialize chart with the first data row if available
-            if (allData.length > 0) {
-                updateChart(Object.values(allData[0]).slice(1));
-            }
-        })
-        .catch(error => console.error('Error fetching data:', error));
-
-    // Event listener for date selector changes
-    document.getElementById('dateSelector').addEventListener('change', function(event) {
-        const selectedDate = event.target.value;
-        const selectedData = allData.find(row => row.Date === selectedDate);
-        if (selectedData) {
-            updateChart(Object.values(selectedData).slice(1)); 
-        }
-    });
-
-    // Function to populate date selector
-    function populateDateSelector(data) {
-        data.forEach(row => {
-            const option = document.createElement('option');
-            option.value = row.Date;
-            option.textContent = row.Date;
-            document.getElementById('dateSelector').appendChild(option);
-        });
-    }
-
-    // Function to update chart
-    function updateChart(data) {
-        Highcharts.chart('container', {
+    Highcharts.chart('container', {
+        title: {
+            text: 'Yield Curve',
+        },
+        subtitle: {
+            text: 'Data from: 10/02/2023',
+        },
+        xAxis: {
+            categories: ['1 Mo', '2 Mo', '3 Mo', '4 Mo', '6 Mo', '1 Yr', '2 Yr', '3 Yr', '5 Yr', '7 Yr', '10 Yr', '20 Yr', '30 Yr'],
             title: {
-                text: 'Yield Curve',
+                text: 'Time'
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Yield (%)'
             },
-            xAxis: {
-                categories: ['1 Mo', '2 Mo', '3 Mo', '4 Mo', '6 Mo', '1 Yr', '2 Yr', '3 Yr', '5 Yr', '7 Yr', '10 Yr', '20 Yr', '30 Yr'],
-            },
-            yAxis: {
-                title: {
-                    text: 'Yield (%)'
-                },
-                min: Math.min(...data) 
-            },
-            series: [{
-                name: 'Yield',
-                data: data
-            }]
-        });
-    }
+            min: minValue // Use the calculated minimum value
+        },
+        series: [{
+            name: 'Yield',
+            data: data
+        }]
+    });
 });
