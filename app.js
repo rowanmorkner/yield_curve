@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("jumpBack").addEventListener("click", function () {
     console.log("Back button clicked!"); // For testing
     // Rest of your logic...
-    index = (index - 1 + Data.length) % Data.length;
+    index = (index - 1) % Data.length;
 
     // Update the series data
     chart.series[0].setData(Data[index]);
