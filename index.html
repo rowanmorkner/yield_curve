@@ -1,34 +1,44 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> -->
+    <link rel="stylesheet" href="style.css" />
     <title>Yield Curve</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1> yield curve project</h1>
+      <h1>yield curve project</h1>
     </header>
     <main>
-        <div id="container"></div>
-        <label for="start">Start date:</label>
+      <div id="container"></div>
+      <label for="start">Start date:</label>
 
-<input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2023-12-31" />
-<label for="start">End date:</label>
+      <input
+        type="date"
+        id="start"
+        name="trip-start"
+        value="2018-07-22"
+        min="2018-01-01"
+        max="2023-12-31"
+      />
+      <label for="start">End date:</label>
 
-<input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2023-12-31" />
+      <input
+        type="date"
+        id="start"
+        name="trip-start"
+        value="2018-07-22"
+        min="2018-01-01"
+        max="2023-12-31"
+      />
     </main>
     <footer>
-        <p>&copy; 2023 Yield Curve Analysis. All rights reserved.</p>
+      <p>&copy; 2023 Yield Curve Analysis. All rights reserved.</p>
     </footer>
     <script src="app.js"></script>
-
-</body>
-
+  </body>
 </html>
-
