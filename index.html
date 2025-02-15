@@ -3,45 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yield Curve Animation</title>
+    <!-- Highcharts -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> -->
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Yield Curve</title>
   </head>
-
   <body>
     <header>
-      <h1>yield curve project</h1>
+      <h1>Yield Curve Project</h1>
     </header>
     <main>
       <div id="container"></div>
-      <button id="jumpBack">previous</button>
 
-      <label for="start">Start date:</label>
+      <!-- Controls for the animation -->
+      <div id="controls">
+        <button id="playPause">Play</button>
+        <input type="range" id="timeline" min="0" max="0" value="0" />
+      </div>
 
-      <input
-        type="date"
-        id="start"
-        name="trip-start"
-        value="2018-07-22"
-        min="2018-01-01"
-        max="2023-12-31"
-      />
-      <label for="start">End date:</label>
-
-      <input
-        type="date"
-        id="end"
-        name="trip-end"
-        value="2018-07-22"
-        min="2018-01-01"
-        max="2023-12-31"
-      />
-      <button id="jumpForward">next</button>
+      <!-- Date range selectors (for future filtering) -->
+      <div id="dateRange">
+        <label for="start">Start date:</label>
+        <input
+          type="date"
+          id="start"
+          name="start"
+          value="2018-07-22"
+          min="2018-01-01"
+          max="2023-12-31"
+        />
+        <label for="end">End date:</label>
+        <input
+          type="date"
+          id="end"
+          name="end"
+          value="2019-07-22"
+          min="2018-01-01"
+          max="2023-12-31"
+        />
+      </div>
     </main>
     <footer>
       <p>&copy; 2023 Yield Curve Analysis. All rights reserved.</p>
     </footer>
+    <!-- Inline debug log -->
+    <script>
+      console.log("Inline script: index.html is running");
+    </script>
     <script src="app.js"></script>
   </body>
 </html>
+
